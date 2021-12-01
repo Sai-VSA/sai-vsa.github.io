@@ -1,0 +1,76 @@
+*{  
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: lighter;
+    border: white;
+}
+
+
+.index{
+    width: 98%;
+    height: 90%;
+    position: absolute;
+    overflow: hidden;
+    padding-left: 14cm;
+    background-color: transparent;
+    color: white;
+    padding-top: 20mm;
+}
+
+.poemTitle{
+    text-indent: 10px;
+}
+
+
+#canvas1 {
+    position:absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(black,black);
+}
+
+
+.poetry{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: lighter;
+    opacity: 1;
+    position:relative;
+    color: white;
+}
+
+.poetry::after {
+    content:"";
+    position: absolute;
+    width: 1px;
+    height: 5mm;
+    border-right: 2px solid white;
+    animation: blink 1.0s infinite ease;
+}
+
+
+@keyframes blink{
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+/*span{
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+
+span.fade{
+    opacity: 1;
+}*/
