@@ -61,7 +61,7 @@ const player = new Fighter({
     animationList: {
         idle: {
             name: "/project.game/Fantasy Warrior/Sprites/Idle.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/idlerev.png",
+            revName: "/project.game/Fantasy Warrior/Sprites/Idlerev.png",
             frames: 10
         },
         run: {
