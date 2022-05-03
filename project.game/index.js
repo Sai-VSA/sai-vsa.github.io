@@ -81,7 +81,7 @@ const player = new Fighter({
         },
         isHit: {
             name: "/project.game/Fantasy Warrior/Sprites/Takehit.png",
-            revName: "Fantasy Warrior/Sprites/Takehitrev.png",
+            revName: "/project.game/Fantasy Warrior/Sprites/Takehitrev.png",
             frames: 3
         },
         fall: {
@@ -139,7 +139,7 @@ const enemy = new Fighter({
         },
         isHit: {
             name: "Fantasy Warrior/Sprites/Takehit.png",
-            revName: "Sprites/Takehitrev.png",
+            revName: "Fantasy Warrior/Sprites/Takehitrev.png",
             frames: 3
         },
         fall: {
