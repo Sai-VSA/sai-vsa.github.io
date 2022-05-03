@@ -119,7 +119,7 @@ const enemy = new Fighter({
     animationList: {
         idle: {
             name: "Fantasy Warrior/Sprites/Idle.png",
-            revName: "Fantasy Warrior/Sprites/idlerev.png",
+            revName: "Fantasy Warrior/Sprites/Idlerev.png",
             frames: 10
         },
         run: {
