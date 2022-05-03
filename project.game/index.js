@@ -118,38 +118,38 @@ const enemy = new Fighter({
     },
     animationList: {
         idle: {
-            name: "/project.game/Fantasy Warrior/Sprites/Idle.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/idlerev.png",
+            name: "Fantasy Warrior/Sprites/Idle.png",
+            revName: "Fantasy Warrior/Sprites/idlerev.png",
             frames: 10
         },
         run: {
-            name: "/project.game/Fantasy Warrior/Sprites/Run.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/Runrev.png",
+            name: "Fantasy Warrior/Sprites/Run.png",
+            revName: "Fantasy Warrior/Sprites/Runrev.png",
             frames: 8
         },
         jump: {
-            name: "/project.game/Fantasy Warrior/Sprites/Jump.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/Jumprev.png",
+            name: "Fantasy Warrior/Sprites/Jump.png",
+            revName: "Fantasy Warrior/Sprites/Jumprev.png",
             frames: 3
         },
         attack: {
-            name: "/project.game/Fantasy Warrior/Sprites/Attack1.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/Attack1rev.png",
+            name: "Fantasy Warrior/Sprites/Attack1.png",
+            revName: "Fantasy Warrior/Sprites/Attack1rev.png",
             frames: 2
         },
         isHit: {
-            name: "/project.game/Fantasy Warrior/Sprites/Take hit.png",
-            revName: "Fantasy Warrior/Sprites/Take hitrev.png",
+            name: "Fantasy Warrior/Sprites/Take hit.png",
+            revName: "Sprites/Take hitrev.png",
             frames: 3
         },
         fall: {
-            name: "/project.game/Fantasy Warrior/Sprites/Fall.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/Fallrev.png",
+            name: "Fantasy Warrior/Sprites/Fall.png",
+            revName: "Fantasy Warrior/Sprites/Fallrev.png",
             frames: 3
         },
         death: {
-            name: "/project.game/Fantasy Warrior/Sprites/Death.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/Deathrev.png",
+            name: "Fantasy Warrior/Sprites/Death.png",
+            revName: "Fantasy Warrior/Sprites/Deathrev.png",
             frames: 2
         }
     },
