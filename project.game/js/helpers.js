@@ -32,7 +32,7 @@ window.addEventListener('keydown', (event) => {
             case 'ArrowUp':
                 if (!key.upArrow.pressed) {
                     key.upArrow.pressed = 1
-                    setAnimation(player, 1)
+                    setAnimation(enemy, 1)
                 }
                 break
             case 'ArrowLeft':
