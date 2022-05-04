@@ -1,9 +1,10 @@
 //event listeners for keyboard keys
 window.addEventListener('keydown', (event) => {
-    if (player.health)
+    //  init()
+    if (player.health && timer > 0)
         switch (event.key) {
             case 'w':
-                if (!key.w.pressed) {
+                if (!key.w.pressed && !player.attackTimer) {
                     key.w.pressed = 1
                     setAnimation(player, 1)
                 }
@@ -27,10 +28,10 @@ window.addEventListener('keydown', (event) => {
                 break
         }
 
-    if (enemy.health)
+    if (enemy.health && timer > 0)
         switch (event.key) {
             case 'ArrowUp':
-                if (!key.upArrow.pressed) {
+                if (!key.upArrow.pressed && !enemy.attackTimer) {
                     key.upArrow.pressed = 1
                     setAnimation(enemy, 1)
                 }
@@ -215,67 +216,69 @@ function gameEnd(p1, p2) {
 }
 
 function setAnimation(obj, cond) {
-    if (obj.health) {
-        switch (cond) {
-            case 0: //idle
-                if (obj.currKey === "right") {
-                    obj.image.src = obj.animationList.idle.name
-                } else {
-                    obj.image.src = obj.animationList.idle.revName
-                }
-                obj.framesMax = obj.animationList.idle.frames
-                break
-            case 1: //jump
-                if (obj.currKey === "right") {
-                    obj.image.src = obj.animationList.jump.name
-                } else {
-                    obj.image.src = obj.animationList.jump.revName
-                }
-                obj.framesMax = obj.animationList.jump.frames
-                break
-            case 2: //left/right
-                if (obj.currKey === "right") {
-                    obj.image.src = obj.animationList.run.name
-                } else {
-                    obj.image.src = obj.animationList.run.revName
-                }
-                obj.framesMax = obj.animationList.run.frames
-                break
-            case 3: //attack
-                obj.framesCurrent = 0
-                if (obj.currKey === "right") {
-                    obj.image.src = obj.animationList.attack.name
-                } else {
-                    obj.image.src = obj.animationList.attack.revName
-                }
-                obj.framesMax = obj.animationList.attack.frames
-                break
-            case 4: //isHit
-                obj.framesCurrent = 0
-                if (obj.currKey === "right") {
-                    obj.image.src = obj.animationList.isHit.name
-                } else {
-                    obj.image.src = obj.animationList.isHit.revName
-                }
-                obj.framesMax = obj.animationList.isHit.frames
-                break
-            case 5: //Death
-                obj.framesCurrent = 0
-                if (obj.currKey === "right") {
-                    obj.image.src = obj.animationList.death.name
-                } else {
-                    obj.image.src = obj.animationList.death.revName
-                }
-                obj.framesMax = obj.animationList.isHit.frames
-                break
+    if (!obj.attackTimer)
+        if (obj.health) {
+            switch (cond) {
+                case 0: //idle
+                    if (obj.currKey === "right") {
+                        obj.image.src = obj.animationList.idle.name
+                    } else {
+                        obj.image.src = obj.animationList.idle.revName
+                    }
+                    obj.framesMax = obj.animationList.idle.frames
+                    break
+                case 1: //jump
+                    if (obj.currKey === "right") {
+                        obj.image.src = obj.animationList.jump.name
+                    } else {
+                        obj.image.src = obj.animationList.jump.revName
+                    }
+                    obj.framesMax = obj.animationList.jump.frames
+                    break
+                case 2: //left/right
+                    if (obj.currKey === "right") {
+                        obj.image.src = obj.animationList.run.name
+                    } else {
+                        obj.image.src = obj.animationList.run.revName
+                    }
+                    obj.framesMax = obj.animationList.run.frames
+                    break
+                case 3: //attack
+                    obj.framesCurrent = 0
+                    if (obj.currKey === "right") {
+                        obj.image.src = obj.animationList.attack.name
+                    } else {
+                        obj.image.src = obj.animationList.attack.revName
+                    }
+                    obj.attackTimer = 1
+                    obj.framesMax = obj.animationList.attack.frames
+                    break
+                case 4: //isHit
+                    obj.framesCurrent = 0
+                    if (obj.currKey === "right") {
+                        obj.image.src = obj.animationList.isHit.name
+                    } else {
+                        obj.image.src = obj.animationList.isHit.revName
+                    }
+                    obj.framesMax = obj.animationList.isHit.frames
+                    break
+                case 5: //Death
+                    obj.framesCurrent = 0
+                    if (obj.currKey === "right") {
+                        obj.image.src = obj.animationList.death.name
+                    } else {
+                        obj.image.src = obj.animationList.death.revName
+                    }
+                    obj.framesMax = obj.animationList.isHit.frames
+                    break
+            }
+        } else { //death
+            obj.framesCurrent = 0
+            if (obj.currKey === "right") {
+                obj.image.src = obj.animationList.death.name
+            } else {
+                obj.image.src = obj.animationList.death.revName
+            }
+            obj.framesMax = obj.animationList.isHit.frames
         }
-    } else { //death
-        obj.framesCurrent = 0
-        if (obj.currKey === "right") {
-            obj.image.src = obj.animationList.death.name
-        } else {
-            obj.image.src = obj.animationList.death.revName
-        }
-        obj.framesMax = obj.animationList.isHit.frames
-    }
 }
