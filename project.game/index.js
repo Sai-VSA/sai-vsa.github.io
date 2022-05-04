@@ -4,8 +4,6 @@ const c = canvas.getContext('2d')
 canvas.width = 1024
 canvas.height = 576
 
-
-
 c.fillRect(0, 0, canvas.width, canvas.height) //fill rectange from (a1, b1) to (a2, b2)
 
 const gravity = 0.5
@@ -34,7 +32,7 @@ const backgroundFloor = new Sprite({
     imgSrc: "Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png",
     width: 1024,
     height: 530,
-    type: 0,
+    type: 1,
     offset: {
         x: 0,
         y: 0
@@ -60,38 +58,38 @@ const player = new Fighter({
     },
     animationList: {
         idle: {
-            name: "/project.game/Fantasy Warrior/Sprites/Idle.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/Idlerev.png",
+            name: "Fantasy Warrior/Sprites/Idle.png",
+            revName: "Fantasy Warrior/Sprites/Idlerev.png",
             frames: 10
         },
         run: {
-            name: "/project.game/Fantasy Warrior/Sprites/Run.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/Runrev.png",
+            name: "Fantasy Warrior/Sprites/Run.png",
+            revName: "Fantasy Warrior/Sprites/Runrev.png",
             frames: 8
         },
         jump: {
-            name: "/project.game/Fantasy Warrior/Sprites/Jump.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/Jumprev.png",
+            name: "Fantasy Warrior/Sprites/Jump.png",
+            revName: "Fantasy Warrior/Sprites/Jumprev.png",
             frames: 3
         },
         attack: {
-            name: "/project.game/Fantasy Warrior/Sprites/Attack1.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/Attack1rev.png",
+            name: "Fantasy Warrior/Sprites/Attack1.png",
+            revName: "Fantasy Warrior/Sprites/Attack1rev.png",
             frames: 2
         },
         isHit: {
-            name: "/project.game/Fantasy Warrior/Sprites/Takehit.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/Takehitrev.png",
+            name: "Fantasy Warrior/Sprites/Takehit.png",
+            revName: "Fantasy Warrior/Sprites/Takehitrev.png",
             frames: 3
         },
         fall: {
-            name: "/project.game/Fantasy Warrior/Sprites/Fall.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/Fallrev.png",
+            name: "Fantasy Warrior/Sprites/Fall.png",
+            revName: "Fantasy Warrior/Sprites/Fallrev.png",
             frames: 3
         },
         death: {
-            name: "/project.game/Fantasy Warrior/Sprites/Death.png",
-            revName: "/project.game/Fantasy Warrior/Sprites/Deathrev.png",
+            name: "Fantasy Warrior/Sprites/Death.png",
+            revName: "Fantasy Warrior/Sprites/Deathrev.png",
             frames: 2
         }
     },
@@ -144,13 +142,13 @@ const enemy = new Fighter({
         },
         fall: {
             name: "Fantasy Warrior/Sprites/Fall.png",
-            revName: "Fantasy Warrior/Sprites/Fallrev.png",
+            nrevName: "Fantasy Warrior/Sprites/Fallrev.png",
             frames: 3
         },
         death: {
             name: "Fantasy Warrior/Sprites/Death.png",
             revName: "Fantasy Warrior/Sprites/Deathrev.png",
-            frames: 2
+            frames: 3
         }
     },
     currKey: "left"
@@ -180,7 +178,6 @@ const key = {
         pressed: false
     }
 }
-
 
 function animate() {
     window.requestAnimationFrame(animate) //infinite loop which helps animate frame by frame
@@ -213,5 +210,13 @@ let a = setInterval(() => {
         clearInterval(a)
     } else {
         timer--;
+    }
+
+    if (player.attackTimer > 0) {
+        player.attackTimtimer--;
+    }
+
+    if (enemy.attackTimer > 0) {
+        enemy.attackTimtimer--;
     }
 }, 1000)

@@ -1,4 +1,4 @@
-// class for in-game Fighters for player1 and player2
+var i = 0 // class for in-game Fighters for player1 and player2
 class Sprite {
     constructor({ position, imgSrc, width, height, type, framesMax = 10, offset, animationList }) { //constructor runs when the class object is created and initialized
         this.width = width
@@ -159,5 +159,9 @@ class Fighter extends Sprite {
             setAnimation(this, 4)
         }
 
+    }
+
+    attack() {
+        this.isAttacking = true
     }
 }

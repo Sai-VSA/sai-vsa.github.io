@@ -1,6 +1,6 @@
 var context;
 var bufferLoader;
-/*
+
 
 function BufferLoader(context, urlList, callback) {
     this.context = context;
@@ -81,6 +81,6 @@ function finishedLoading(bufferList) {
 
     source1.connect(context.destination);
 
-    source1.start(0);
+    // source1.start(0);
     // source2.start(0);
 }
