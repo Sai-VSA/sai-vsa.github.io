@@ -1,6 +1,6 @@
 var context;
 var bufferLoader;
-
+/*
 
 function BufferLoader(context, urlList, callback) {
     this.context = context;
