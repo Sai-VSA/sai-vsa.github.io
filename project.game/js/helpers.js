@@ -1,6 +1,5 @@
 //event listeners for keyboard keys
 window.addEventListener('keydown', (event) => {
-    init()
     if (player.health)
         switch (event.key) {
             case 'w':
