@@ -10,11 +10,11 @@ class Sprite {
         this.framesMax = framesMax
         this.framesCurrent = 0
         this.framesElapsed = 0
-        this.framesHold = 20 //frames update every 
+        this.framesHold = 100 //frames update every 
         this.scale = 1
         this.offset = offset
         this.animationList = animationList
-        this.inAnimation = false
+        this.attackTimer = 0
 
     }
 
@@ -32,9 +32,6 @@ class Sprite {
                         this.position.y - this.offset.y, //starting y coordinares
                         this.image.width / this.framesMax * this.scale, //display image
                         this.image.height * this.scale) //starting x coordinares
-                if ((this.framesMax - 1) == this.framesCurrent) {
-                    this.inAnimation = false;
-                }
                 break
             case 1:
                 c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
@@ -46,15 +43,34 @@ class Sprite {
     }
 
     update() {
+
         if ((this.framesElapsed % this.framesHold) == 0) {
             if (this.framesCurrent < (this.framesMax - 1)) {
                 this.framesCurrent++;
             } else {
                 this.framesCurrent = 0;
+                if (!this.type) {
+                    if (i < 2) {
+                        i++;
+                        console.log((this.image.src))
+                        console.log(this.animationList.attack.name)
+                    }
+                    if ((this.image.src).includes("Attack")) {
+                        this.attackTimer = 0
+                        console.log(0)
+                        if (this.currKey === "left") {
+                            this.image.src = this.animationList.idle.revName
+                            console.log(0)
+                        } else {
+                            this.image.src = this.animationList.idle.name
+                        }
+                        this.framesMax = this.animationList.idle.frames
+                    }
+                }
             }
         }
-        this.framesElapsed++;
         this.draw()
+        this.framesElapsed++;
     }
 
 }
@@ -143,9 +159,5 @@ class Fighter extends Sprite {
             setAnimation(this, 4)
         }
 
-    }
-
-    attack() {
-        this.isAttacking = true
     }
 }
